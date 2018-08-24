@@ -73,7 +73,7 @@ describe("list node tests", function() {
         .push("foo")
         .tail()
         .toString(),
-    ).toEqual("(foo)");
+    ).toEqual("()");
   });
 
   it("has a length", () => {
@@ -129,9 +129,25 @@ describe("codewars spec", () => {
         .toString(),
     );
     expect(l2.toString()).toEqual("(a b c a b c)");
-    expect(l2.tail().tail().tail().toString()).toEqual(l1.toString());
-    expect(l2.tail().tail().tail()).toEqual(l1);
-    expect(l2.tail().tail().tail()).toBe(l1);
+    expect(
+      l2
+        .tail()
+        .tail()
+        .tail()
+        .toString(),
+    ).toEqual(l1.toString());
+    expect(
+      l2
+        .tail()
+        .tail()
+        .tail(),
+    ).toEqual(l1);
+    expect(
+      l2
+        .tail()
+        .tail()
+        .tail(),
+    ).toBe(l1);
     // expect(l2 === l1).toBeFalsy();
     // expect(l3.tail()).toEqual(l1.tail().tail());
   });
